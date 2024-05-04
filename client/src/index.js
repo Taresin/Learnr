@@ -5,6 +5,7 @@ import "./index.css";
 import Scaffold from "./Scaffold";
 import Mine from "./Mine";
 import Home from "./Home";
+import RunGameScreen from "./RunGameScreen";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
         path: "mine",
         element: (
             <Scaffold>
-                <Mine row={2} col={3} />
+                <RunGameScreen />
             </Scaffold>
         ),
     },

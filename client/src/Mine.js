@@ -26,19 +26,6 @@ import image25 from "./tiles/FieldsTile_25.png";
 import robot from "./items/robot.png";
 import chest from "./items/chest.png";
 
-const getRandomTile = () => {
-    // Generate a random number between 1 and 64
-    const randomNumber = Math.floor(Math.random() * 64) + 1;
-
-    // Format the number to be two digits
-    const formattedNumber = randomNumber.toString().padStart(2, "0");
-
-    // Construct the file name
-    const fileName = `Fields_Tile_${formattedNumber}.png`;
-
-    return fileName;
-};
-
 const images = [
     image01,
     image02,
@@ -67,8 +54,10 @@ const images = [
     image25,
 ];
 
-export default function Mine({ row, col }) {
+export default function Mine({ row, col, goal_row, goal_col }) {
     const robotIndex = row * 5 + col;
+    const goalIndex = goal_row * 5 + goal_col;
+
     return (
         <div className="flex justify-center items-center h-screen">
             <ul role="list" className="grid grid-cols-5 justify-center gap-2">
@@ -79,7 +68,7 @@ export default function Mine({ row, col }) {
                             alt=""
                             className="absolute inset-0 w-full h-full object-cover"
                         />
-                        {index == robotIndex && (
+                        {index == goalIndex && (
                             <img
                                 src={chest}
                                 alt="robot"

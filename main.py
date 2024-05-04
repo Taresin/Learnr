@@ -130,14 +130,14 @@ print("Finished training")
 
 print(agent.q_table)
 #
-# # Evaluate the trained agent
-# total_rewards = 0
-# num_episodes = 10
-# for _ in range(num_episodes):
-#     state = env.reset()
-#     done = False
-#     while not done:
-#         action = agent.choose_action(state)
-#         state, reward, done, _ = env.step(action)
-#         total_rewards += reward
-# print("Average reward per episode after training:", total_rewards / num_episodes)
+# Evaluate the trained agent
+total_rewards = 0
+num_episodes = 10
+for _ in range(num_episodes):
+    state = env.reset()
+    done = False
+    while not done:
+        action = agent.choose_action(state)
+        state, reward, done, _ = env.step(action)
+        total_rewards += reward
+print("Average reward per episode after training:", total_rewards / num_episodes)
