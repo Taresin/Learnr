@@ -124,3 +124,23 @@ def train_agent(env, agent, num_episodes=100, render=False):
             action = next_action
     if render:
         env.render()
+
+
+# Define environment and agent
+print("Starting Gridworld")
+env = GridWorld(grid_size)
+env.render()
+
+ns = grid_size * grid_size
+na = len(list(Action))
+print(ns, na)
+
+q = QTable(grid_size, grid_size, na)
+
+agent = SarsaAgent(na)
+agent.set_q_table(q)
+
+
+# Train the agent
+train_agent(env, agent, 1)
+print("Finished training")
