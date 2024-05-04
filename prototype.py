@@ -118,11 +118,23 @@ def train_agent(env, agent, num_episodes=100, render=False):
 
 # Define environment and agent
 env = GridWorld(grid_size)
-print(env.render())  # Print initial state as JSON for checking
+grid_output = env.render()  # Get initial state as JSON string
 
 ns = grid_size * grid_size
 na = len(list(Action))
-print(ns, na)
+
+# Create a dictionary to hold all the required information
+output_data = {
+    'grid': json.loads(grid_output),  # Convert grid JSON string back to Python list
+    'ns': ns,
+    'na': na
+}
+
+# Convert the entire output to a JSON formatted string
+final_output = json.dumps(output_data, indent=4)  # `indent=4` for pretty printing
+
+# Print the final JSON output
+print(final_output)
 
 q = QTable(grid_size, grid_size, na)
 agent = SarsaAgent(na)
