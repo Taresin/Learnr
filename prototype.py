@@ -1,6 +1,8 @@
 import numpy as np
+import os
 
-grid_size = 5
+# Get grid size from environment variable or default to 5
+grid_size = int(os.getenv('GRID_SIZE', '5'))
 
 from enum import Enum
 class Action(Enum):
