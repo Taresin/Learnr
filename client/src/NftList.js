@@ -3,42 +3,7 @@ import {
     ArrowTrendingUpIcon,
 } from "@heroicons/react/20/solid";
 
-const nftData = [
-    {
-        tokenId: 1,
-        name: "Botson",
-        imageUrl:
-            "https://ipfs.io/ipfs/QmaG3Bqcy8mu1QwPmnp8gMEoN2N9fN99e2UGFKPgg7JLPv",
-        brain: "https://www.google.com",
-        description: "A bot that can do anything it sets it mind to",
-        price: 100,
-        training: 100,
-    },
-    {
-        tokenId: 2,
-        name: "Machina",
-        imageUrl:
-            "https://ipfs.io/ipfs/QmVCYBq5Sasjp99MD6YMKp7xJwSxpxXjTCf85ekKaReFng",
-        brain: "https://www.google.com",
-        description: "An upgraded bot",
-        price: 100,
-        training: 500,
-    },
-    {
-        tokenId: 3,
-        name: "Beast",
-        imageUrl:
-            "https://ipfs.io/ipfs/QmSjfLd4h7PzJQ9RARUpr4z5918qZ4ziK9RFUnNGLefsR1",
-        brain: "https://www.google.com",
-        description: "A battle hardened bot",
-        price: 100,
-        training: 1000,
-    },
-];
-
-const miner = null;
-
-export default function NftList({ nftData }) {
+export default function NftList({ nftData, onTrain, mineLink }) {
     return (
         <ul
             role="list"
@@ -75,9 +40,9 @@ export default function NftList({ nftData }) {
                         <div className="-mt-px flex divide-x divide-gray-200">
                             <div className="flex w-0 flex-1">
                                 <a
+                                    href={mineLink}
                                     className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
                                     onClick={(e) => {
-                                        e.preventDefault();
                                         console.log(
                                             "Mine Clicked",
                                             nft.tokenId
@@ -94,13 +59,7 @@ export default function NftList({ nftData }) {
                             <div className="-ml-px flex w-0 flex-1">
                                 <a
                                     className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold text-gray-900"
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        console.log(
-                                            "Train Clicked",
-                                            nft.tokenId
-                                        );
-                                    }}
+                                    onClick={onTrain}
                                 >
                                     <ArrowTrendingUpIcon
                                         className="h-5 w-5 text-gray-400"

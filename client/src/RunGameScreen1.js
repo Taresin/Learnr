@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Mine from "./Mine";
 
-export default function RunGameScreen() {
+export default function RunGameScreen1() {
     const [count, setCount] = useState(0);
     const [row, setRow] = useState(0);
     const [col, setCol] = useState(0);
@@ -13,7 +13,7 @@ export default function RunGameScreen() {
         RIGHT: 3,
     };
 
-    const [qTable, setQTable] = useState(createQTable2(5, 5, 4));
+    const [qTable, setQTable] = useState(createQTable(5, 5, 4));
 
     console.log(qTable);
     function createQTable(rows, cols, numActions) {
@@ -142,8 +142,7 @@ export default function RunGameScreen() {
     return (
         <div className="overflow-hidden rounded-lg bg-white shadow">
             <div className="px-4 py-5 sm:p-6">
-                <h1>{count}</h1>
-                <Mine row={row} col={col} goal_row={4} goal_col={3} />
+                <Mine row={row} col={col} goal_row={0} goal_col={4} />
             </div>
         </div>
     );

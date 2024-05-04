@@ -14,7 +14,7 @@ export default function Home() {
 
     const contractAddress = "0x4B9E83Fa8f5C5C4402F49F2AbBBD61DDBA75c9b7";
 
-    const nftData = [
+    const defaultNftData = [
         {
             tokenId: 1,
             name: "Botson",
@@ -23,7 +23,7 @@ export default function Home() {
             brain: "https://www.google.com",
             description: "A bot that can do anything it sets it mind to",
             price: 100,
-            training: 100,
+            training: 0,
         },
         {
             tokenId: 2,
@@ -47,6 +47,7 @@ export default function Home() {
         },
     ];
 
+    const [nftData, setNftData] = useState(defaultNftData);
     const miner = null;
 
     const mintRobot = async () => {
@@ -98,6 +99,21 @@ export default function Home() {
         }
     }
 
+    function onTrain() {
+        setNftData([
+            {
+                tokenId: 1,
+                name: "Botson",
+                imageUrl:
+                    "https://ipfs.io/ipfs/QmaG3Bqcy8mu1QwPmnp8gMEoN2N9fN99e2UGFKPgg7JLPv",
+                brain: "https://www.google.com",
+                description: "A bot that can do anything it sets it mind to",
+                price: 100,
+                training: 100,
+            },
+        ]);
+    }
+
     return (
         <Scaffold>
             {!connectedAccount && (
@@ -118,7 +134,11 @@ export default function Home() {
             >
                 Mint a new Robot
             </button>
-            <NftList nftData={nftData} />
+            <NftList
+                nftData={nftData}
+                onTrain={onTrain}
+                mineLink={nftData[0].training === 0 ? "/mine1" : "/mine2"}
+            />
         </Scaffold>
     );
 }
