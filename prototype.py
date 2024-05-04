@@ -2,8 +2,8 @@ import os
 import numpy as np
 import json
 
-# Get grid size from environment variable or default to 5
-grid_size = int(os.getenv('GRID_SIZE', '5'))
+# If no arguments were passed via -i input, default to 5
+grid_size = int(sys.argv[1]) if len(sys.argv) > 1 else 5
 
 from enum import Enum
 class Action(Enum):
