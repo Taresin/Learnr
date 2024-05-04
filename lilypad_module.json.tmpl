@@ -12,9 +12,9 @@
       },
       "Docker": {
         "Entrypoint": [
-          "/bin/sh", "-c", "python prototype.py --grid-size $1"
+          "/bin/sh", "-c", "python lilypad_sarsa.py $1 $2"
         ],
-        "Image": "yourusername/gridworld:latest"
+        "Image": "zeath/sarsa:latest"
       },
       "Engine": "Docker",
       "Network": {

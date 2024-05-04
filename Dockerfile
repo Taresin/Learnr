@@ -14,4 +14,4 @@ RUN pip install numpy
 ENV GRID_SIZE 5
 
 # Run app.py when the container launches
-CMD ["python", "prototype.py"]
+CMD ["python", "lilypad_sarsa.py"]
