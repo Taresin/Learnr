@@ -12,7 +12,7 @@
       },
       "Docker": {
         "Entrypoint": [
-          "/bin/sh", "-c", "python lilypad_sarsa.py {{.Username}} {{.Filename}}"
+          "/bin/sh", "-c", "python lilypad_sarsa.py $1 $2"
         ],
         "Image": "zeath/sarsa:latest"
       },
