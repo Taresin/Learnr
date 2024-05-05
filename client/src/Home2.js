@@ -4,7 +4,7 @@ import { HttpProvider, Web3 } from "web3";
 import abi from "./abi/sarsa.json";
 import { useState } from "react";
 
-export default function Home() {
+export default function Home2() {
     const [connectedAccount, setConnectedAccount] = useState(null);
 
     const provider = new HttpProvider(
@@ -25,26 +25,26 @@ export default function Home() {
             price: 100,
             training: 0,
         },
-        // {
-        //     tokenId: 2,
-        //     name: "Machina",
-        //     imageUrl:
-        //         "https://ipfs.io/ipfs/QmVCYBq5Sasjp99MD6YMKp7xJwSxpxXjTCf85ekKaReFng",
-        //     brain: "https://www.google.com",
-        //     description: "An upgraded bot",
-        //     price: 100,
-        //     training: 500,
-        // },
-        // {
-        //     tokenId: 3,
-        //     name: "Beast",
-        //     imageUrl:
-        //         "https://ipfs.io/ipfs/QmSjfLd4h7PzJQ9RARUpr4z5918qZ4ziK9RFUnNGLefsR1",
-        //     brain: "https://www.google.com",
-        //     description: "A battle hardened bot",
-        //     price: 100,
-        //     training: 1000,
-        // },
+        {
+            tokenId: 2,
+            name: "Machina",
+            imageUrl:
+                "https://ipfs.io/ipfs/QmVCYBq5Sasjp99MD6YMKp7xJwSxpxXjTCf85ekKaReFng",
+            brain: "https://www.google.com",
+            description: "An upgraded bot",
+            price: 100,
+            training: 500,
+        },
+        {
+            tokenId: 3,
+            name: "Beast",
+            imageUrl:
+                "https://ipfs.io/ipfs/QmSjfLd4h7PzJQ9RARUpr4z5918qZ4ziK9RFUnNGLefsR1",
+            brain: "https://www.google.com",
+            description: "A battle hardened bot",
+            price: 100,
+            training: 1000,
+        },
     ];
 
     const [nftData, setNftData] = useState(defaultNftData);

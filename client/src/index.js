@@ -5,6 +5,7 @@ import "./index.css";
 import Scaffold from "./Scaffold";
 import Mine from "./Mine";
 import Home from "./Home";
+import Home2 from "./Home2";
 import RunGameScreen1 from "./RunGameScreen1";
 import RunGameScreen2 from "./RunGameScreen2";
 
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Home />,
+    },
+    {
+        path: "/2",
+        element: <Home2 />,
     },
     {
         path: "mine1",

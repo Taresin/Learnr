@@ -2,43 +2,8 @@ import {
     WrenchScrewdriverIcon,
     ArrowTrendingUpIcon,
 } from "@heroicons/react/20/solid";
-import React, { useState } from "react";
 
 export default function NftList({ nftData, onTrain, mineLink }) {
-    const [showData, setShowData] = useState(false);
-
-    const Action = {
-        UP: 0,
-        DOWN: 1,
-        LEFT: 2,
-        RIGHT: 3,
-    };
-
-    function createQTable(rows, cols, numActions) {
-        // Initialize the Q-table as a 3D array
-        const qTable = new Array(rows)
-            .fill(null)
-            .map(() =>
-                new Array(cols)
-                    .fill(null)
-                    .map(() => new Array(numActions).fill(0))
-            );
-
-        // Set higher values for the DOWN action
-        for (let row = 0; row < rows; row++) {
-            for (let col = 0; col < cols; col++) {
-                qTable[row][col][Action.DOWN] = 1 + 0.1; // Higher values for DOWN
-                qTable[row][col][Action.UP] = 0.1;
-                qTable[row][col][Action.LEFT] = -1;
-                qTable[row][col][Action.RIGHT] = 0.42;
-            }
-        }
-
-        return qTable;
-    }
-
-    const data = JSON.stringify(createQTable(5, 5, 4));
-
     return (
         <ul
             role="list"
@@ -107,17 +72,6 @@ export default function NftList({ nftData, onTrain, mineLink }) {
                     </div>
                 </li>
             ))}
-
-            {!showData && (
-                <button onClick={() => setShowData(!showData)}>
-                    Show Data
-                </button>
-            )}
-            {showData && (
-                <li className="col-span-1 flex flex-col text-center rounded-lg bg-white shadow">
-                    {data}
-                </li>
-            )}
         </ul>
     );
 }
