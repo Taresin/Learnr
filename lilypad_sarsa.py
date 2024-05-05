@@ -123,7 +123,7 @@ env = GridWorld(grid_size)
 if len(sys.argv) != 2:
     print("Please provide one arguments: Q Table", file=sys.stderr)
     print(pickle.dumps(QTable(5, 5, 4).values))
-    exit(1)
+    exit(0)
 
 q_table_json = sys.argv[1]
 
