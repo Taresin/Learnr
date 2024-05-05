@@ -121,7 +121,6 @@ def train_agent(env, agent, num_episodes=100):
 
 env = GridWorld(grid_size)
 if len(sys.argv) != 2:
-    print("Please provide one arguments: Q Table", file=sys.stderr)
     print(pickle.dumps(QTable(5, 5, 4).values))
     exit(0)
 
